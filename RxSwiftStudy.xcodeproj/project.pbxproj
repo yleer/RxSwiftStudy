@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8859D05527E1AF6E00E330EA /* Rx4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859D05427E1AF6E00E330EA /* Rx4ViewController.swift */; };
+		8859D05827E1B10800E330EA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8859D05727E1B10800E330EA /* SnapKit */; };
 		88BD937227D4960A000F612D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BD937127D4960A000F612D /* AppDelegate.swift */; };
 		88BD937427D4960A000F612D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BD937327D4960A000F612D /* SceneDelegate.swift */; };
 		88BD937627D4960A000F612D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BD937527D4960A000F612D /* ViewController.swift */; };
@@ -19,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8859D05427E1AF6E00E330EA /* Rx4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx4ViewController.swift; sourceTree = "<group>"; };
 		88BD936E27D4960A000F612D /* RxSwiftStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BD937127D4960A000F612D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BD937327D4960A000F612D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8859D05827E1B10800E330EA /* SnapKit in Frameworks */,
 				88BD938F27D49733000F612D /* RxSwift in Frameworks */,
 				88BD938D27D49733000F612D /* RxCocoa in Frameworks */,
 			);
@@ -70,6 +74,7 @@
 				88BD937C27D4960C000F612D /* LaunchScreen.storyboard */,
 				88BD937F27D4960C000F612D /* Info.plist */,
 				88D9F2C627D630BD0085F611 /* Lec3ViewController.swift */,
+				8859D05427E1AF6E00E330EA /* Rx4ViewController.swift */,
 			);
 			path = RxSwiftStudy;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 			packageProductDependencies = (
 				88BD938C27D49733000F612D /* RxCocoa */,
 				88BD938E27D49733000F612D /* RxSwift */,
+				8859D05727E1B10800E330EA /* SnapKit */,
 			);
 			productName = RxSwiftStudy;
 			productReference = 88BD936E27D4960A000F612D /* RxSwiftStudy.app */;
@@ -124,6 +130,7 @@
 			mainGroup = 88BD936527D4960A000F612D;
 			packageReferences = (
 				88BD938B27D49733000F612D /* XCRemoteSwiftPackageReference "RxSwift" */,
+				8859D05627E1B10800E330EA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 88BD936F27D4960A000F612D /* Products */;
 			projectDirPath = "";
@@ -154,6 +161,7 @@
 			files = (
 				88BD937627D4960A000F612D /* ViewController.swift in Sources */,
 				88D9F2C727D630BD0085F611 /* Lec3ViewController.swift in Sources */,
+				8859D05527E1AF6E00E330EA /* Rx4ViewController.swift in Sources */,
 				88BD937227D4960A000F612D /* AppDelegate.swift in Sources */,
 				88BD937427D4960A000F612D /* SceneDelegate.swift in Sources */,
 			);
@@ -377,6 +385,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8859D05627E1B10800E330EA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		88BD938B27D49733000F612D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -388,6 +404,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8859D05727E1B10800E330EA /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8859D05627E1B10800E330EA /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		88BD938C27D49733000F612D /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 88BD938B27D49733000F612D /* XCRemoteSwiftPackageReference "RxSwift" */;

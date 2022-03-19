@@ -32,57 +32,94 @@ class Lec3ViewController: UIViewController {
 //         // 5
 //         subject.onNext("2")        //Print: 2
         
-        let subject = PublishSubject<String>()
-        subject.onNext("Is anyone listening?")
-
         
-        // 이전에 있는 이벤트 무시. 앞으로 있을 이벤트만 처리
-        let subscriptionOne = subject
-             .subscribe(onNext: { (string) in
-                 print(string)
-         })
+        // 예제 2
+//        let subject = PublishSubject<String>()
+//        subject.onNext("Is anyone listening?")
+//
+//
+//        // 이전에 있는 이벤트 무시. 앞으로 있을 이벤트만 처리
+//        let subscriptionOne = subject
+//             .subscribe(onNext: { (string) in
+//                 print(string)
+//         })
+//
+//
+//         subject.on(.next("1")) // print 1
+//         subject.onNext("2") // print 2
+//
+//         // 1
+//        // 이전에 있는 이벤트 무시. 앞으로 있을 이벤트만 처리
+//        // 새로운 이벤트 들어오면 아래의 프린트 문 출력
+//         let subscriptionTwo = subject
+//             .subscribe({ (event) in
+//                 print("2)", event.element ?? event)
+//             })
+//
+//         // 2
+//         subject.onNext("3")  // subscriptionOne, subscriptionTwo에 의해 두개 출력됨
+//
+//         // 3
+//         subscriptionOne.dispose()  // subscriptionOne 버려서 아래 4 출려 X
+//         subject.onNext("4")
+//
+//         // 4  subject 완전 종료 처리.  subscriptionTwo 프린트 문 실행됨
+//         subject.onCompleted()
+//
+//         // 5
+//         subject.onNext("5") // subject 완료 처리돼서 처리 x
+//
+//         // 6
+//         subscriptionTwo.dispose()  //subscriptionTwo 버리기
+//
+//         let disposeBag = DisposeBag()
+//
+//         // 7
+//         subject
+//             .subscribe {
+//                 print("3)", $0.element ?? $0)
+//         }
+//             .disposed(by: disposeBag)
+//
+//         subject.onNext("?")
         
         
-         subject.on(.next("1")) // print 1
-         subject.onNext("2") // print 2
+        // 예제 3
+        
+        let subject = BehaviorSubject(value: "Initial value")
+        let disposeBag = DisposeBag()
+        
+        
+        subject.onNext("X")
+        
+        subject
+        .subscribe{
+            print(label: "1)", event: $0)
+        }
+        .disposed(by: disposeBag)
 
-         // 1
-        // 이전에 있는 이벤트 무시. 앞으로 있을 이벤트만 처리
-        // 새로운 이벤트 들어오면 아래의 프린트 문 출력
-         let subscriptionTwo = subject
-             .subscribe({ (event) in
-                 print("2)", event.element ?? event)
-             })
+        // 7
+        subject.onError(MyError.anError)
 
-         // 2
-         subject.onNext("3")  // subscriptionOne, subscriptionTwo에 의해 두개 출력됨
-
-         // 3
-         subscriptionOne.dispose()  // subscriptionOne 버려서 아래 4 출려 X
-         subject.onNext("4")
-
-         // 4  subject 완전 종료 처리.  subscriptionTwo 프린트 문 실행됨
-         subject.onCompleted()
-
-         // 5
-         subject.onNext("5") // subject 완료 처리돼서 처리 x
-
-         // 6
-         subscriptionTwo.dispose()  //subscriptionTwo 버리기
-
-         let disposeBag = DisposeBag()
-
-         // 7
-         subject
-             .subscribe {
-                 print("3)", $0.element ?? $0)
-         }
-             .disposed(by: disposeBag)
-
-         subject.onNext("?")
+        // 8
+        subject
+            .subscribe {
+                print(label: "2)", event: $0)
+            }
+            .disposed(by: disposeBag)
         
     }
+    
+   
     
 
 
 }
+func print<T: CustomStringConvertible>(label: String, event: Event<T>) {
+    print(label, event.element ?? event.error ?? event)
+}
+
+
+enum MyError: Error {
+     case anError
+ }
